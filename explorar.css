@@ -1,0 +1,256 @@
+/* ESTO SE APLICA A TODO EL DOCUMENTO */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #dde5b6; /* Beige claro */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* ESTO ES PARA LA BARRA DE NAVEGACION */
+.barrita {
+  background-color: rgba(20, 30, 20, 0.8); /* Verde oscuro más opaco */
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(18px); /* Efecto blur aplicado */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad para Safari */
+}
+
+.barrita ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.barrita #imglogo {
+  height: 55px;
+  width: 210px;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+
+  margin-right: 2vw;
+}
+.barrita a {
+  text-decoration: none;
+  color: white; /* Color de texto gris más oscuro */
+  font-size: 18px;
+  padding: 15px;
+  font-weight: 550;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.barrita a:hover {
+  color: #cbff74; /* Verde más oscuro */
+  transform: scale(1.1);
+}
+
+.barrita li {
+  position: relative;
+}
+
+/* ESTO ES PARA EL EFECTO DE SUBRAYADO DE LOS BOTONES */   
+.barrita #vfx::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #cbff74; /* Verde más oscuro */
+  transform: scaleX(0);
+  transform-origin: bottom center;
+  transition: transform 0.3s ease;
+}
+
+.barrita #vfx:hover::after {
+  transform: scaleX(1);
+}
+
+#PROFILE {
+  background-color: #3a5a40; /* Verde grisáceo oscuro */
+  color: white; /* Color de texto gris más oscuro */
+  border-radius: 50px;
+}
+
+#PROFILE:hover {
+  color: #cbff74; /* Verde más oscuro */
+}
+/* ESTO ES PARA EL MENU DESPLEGABLE DE IDIOMAS */
+.dropdown {
+  position: relative;
+}
+
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(20, 30, 20, 0.9); /* Verde oscuro más opaco */
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px); 
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown .dropdown-content a {
+  color: white; /* Color de texto gris más oscuro */
+  padding: 15px; /* Aumentar padding */
+  text-decoration: none;
+  border-radius: 15px;
+  display: block;
+}
+
+.dropdown .dropdown-content a:hover {
+  background-color: #cbff74; /* Verde más oscuro */
+  color: black;
+}
+
+
+
+
+main {
+  margin-top: 100px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+
+
+/* BOTONES DE "VER RECETA" */
+.boton {
+  display: block;
+  margin: 10px auto;
+  padding: 15px 30px;
+  background-color: #3a5a40; /* Verde grisáceo oscuro */
+  color: #d0d0d0; /* Color de texto gris más oscuro */
+  text-decoration: none;
+  border: none;
+  border-radius: 60px;
+  width: 300px; /* Reducir el ancho del botón */
+  font-size: 16px; /* Reducir el tamaño de la fuente del botón */
+  letter-spacing: 2px;
+  text-align: center;
+  transition: background-color 0.4s ease;
+}    
+
+.boton:hover {
+  background-color: #2a4a30; /* Verde más oscuro */
+  transform: scale(1);
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* FLEXBOX DE LOS RECTANGULOS DE LAS RECETAS Y SUS IMGS */
+.receta {
+  background-color: #d0c4a8; /* Beige más oscuro */
+  border-radius: 20px; /* Bordes redondeados */
+  margin: 20px; /* Espaciado externo */
+  padding: 20px; /* Espaciado interno */
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  max-width: 400px; /* Ancho máximo */
+  min-width: 220px; 
+  min-height: fit-content; /* Altura mínima */
+  overflow: hidden;
+  position: relative; /* Para el efecto de iluminación */
+  border: 2px solid #b0a190; /* Beige más oscuro */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de iluminación */
+.receta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* Coincidir con el borde redondeado */
+  background: radial-gradient(circle at var(--light-x) var(--light-y), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 70%);
+  transition: background 0.3s ease;
+  pointer-events: none; /* No interferir con el cursor */
+}
+
+/* Efecto al pasar el mouse */
+.receta:hover {
+  transform: scale(1.05); /* Aumentar ligeramente */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra sutil más pronunciada */
+}
+
+/* Mejorar el texto dentro de las recetas */
+.receta p {
+  font-size: 16px; /* Ajustar tamaño del texto */
+  line-height: 1.5; /* Mejorar legibilidad */
+  padding: 10px; /* Espaciado interno */
+}
+
+/* Ajustar imágenes */
+.receta img {
+  width: 100%;
+  height: 200px; /* Ajustar altura de la imagen */
+  object-fit: cover; /* Mantener proporciones */
+  border-radius: 15px; /* Bordes redondeados */
+}
+
+h2 {
+  font-size: 50px; /* Aumentar el tamaño de la fuente */
+  color: #3a5a40; /* Verde grisáceo oscuro */
+}
+
+h3 {
+  color: #3a5a40; /* Verde grisáceo oscuro */
+  font-size: 20px; /* Aumentar el tamaño de la fuente */ 
+  padding: 20px; /* Aumentar el padding */
+}
+
+/* Ocultar la barra de desplazamiento horizontal pero permitir el desplazamiento */
+/* Barra de desplazamiento personalizada */
+.categoria {
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding-bottom: 20px;
+  scrollbar-width: thin; 
+  scrollbar-color: #3a5a40 #d0c4a8; /* Verde grisáceo oscuro y beige más oscuro */
+  margin-left: 8vw; /* Ajustar márgenes */
+  margin-right: 8vw;
+}
+
+.categoria::-webkit-scrollbar {
+  height: 12px;
+}
+
+.categoria::-webkit-scrollbar-track {
+  background: #d0c4a8; /* Beige más oscuro */
+  border-radius: 50%; 
+}
+
+.categoria::-webkit-scrollbar-thumb {
+  background-color: #3a5a40; /* Verde grisáceo oscuro */
+  border-radius: 50%; 
+  border: 2px solid #d0c4a8; /* Beige más oscuro */
+}
+
+.categoria::-webkit-scrollbar-thumb:hover {
+  background-color: #2a4a30; /* Verde más oscuro */
+  border-radius: 50%; 
+}
+

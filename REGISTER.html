@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaborSinCulpa | Sign Up</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="icon" href="logo/icono.ico">
+
+</head>
+<header>
+    <nav class="barrita">
+      <ul>
+        <li><a href="mainpageesp.html"><img src="logo/logo.jpg" id="imglogo"></a> </li>
+        <li><a href="explorar.html"id="vfx">EXPLORAR</a></li>
+        <li><a href="contact.html" target="_blank"id="vfx">CONTÁCTANOS</a></li>
+        <li class="dropdown">
+          <a href="#">IDIOMA</a>
+          <ul class="dropdown-content">
+            <li><a href="mainpageesp.html">Español</a></li>
+            <li><a href="mainpageeng.html">Inglés</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="mainpageeng.html"id="vfx">CERRAR SESION</a></li>
+        <li><a href="REGISTER.html"id="vfx">INICIAR SESION</a></li>
+        <li><a href="mainpageeng.html" id="PROFILE">MI PERFIL</a></li>
+      </ul>
+    </nav>
+  </header>
+<body>
+    <div class="login-container">
+        <h2>Registrarse</h2>
+        <form id="registerForm" action="mainpageesp.html" method="POST">
+            <input type="text" id="username" name="username" placeholder="Nombre de Usuario" required>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            <input type="checkbox" id="showPassword">
+            <label for="showPassword">Mostrar contraseña</label>
+            <button type="submit">Registrarse</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <script src="log.js"></script>
+</body>
+</html>
